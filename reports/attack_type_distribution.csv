@@ -1,0 +1,10 @@
+attacktype1_txt,event_count,total_killed,total_wounded
+Bombing/Explosion,98158,174134.0,401847.0
+Armed Assault,49553,182325.0,89622.0
+Assassination,21539,27598.0,16245.0
+Hostage Taking (Kidnapping),14045,32301.0,9009.0
+Facility/Infrastructure Attack,12325,4552.0,4148.0
+Unknown,10942,48707.0,22959.0
+Unarmed Assault,1229,933.0,14805.0
+Hostage Taking (Barricade Incident),1156,5050.0,4531.0
+Hijacking,759,3748.0,22440.0

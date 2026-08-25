@@ -1,0 +1,43 @@
+{
+    "model_type": "RandomForestClassifier",
+    "version": "1.0.0",
+    "training_date": "2026-08-25 19:37:32",
+    "target_name": "high_severity_event",
+    "feature_names": [
+        "iyear",
+        "imonth",
+        "iday",
+        "region_txt_code",
+        "country_txt_code",
+        "attacktype1_txt_code",
+        "targtype1_txt_code",
+        "weaptype1_txt_code",
+        "region_txt_freq",
+        "country_txt_freq",
+        "attacktype1_txt_freq",
+        "targtype1_txt_freq",
+        "weaptype1_txt_freq",
+        "multiple",
+        "success",
+        "suicide",
+        "property",
+        "ishostkid",
+        "latitude",
+        "longitude"
+    ],
+    "n_samples_train": 167764,
+    "n_samples_test": 41942,
+    "hyperparameters": {
+        "n_estimators": 100,
+        "max_depth": 15,
+        "class_weight": "balanced",
+        "random_state": 42
+    },
+    "metrics": {
+        "accuracy": 0.8457,
+        "precision": 0.8949,
+        "recall": 0.8433,
+        "f1_score": 0.8683,
+        "roc_auc": 0.9273
+    }
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "targtype1_txt":"Private Citizens & Property",
+    "event_count":51985
+  },
+  {
+    "targtype1_txt":"Military",
+    "event_count":34131
+  },
+  {
+    "targtype1_txt":"Police",
+    "event_count":28568
+  },
+  {
+    "targtype1_txt":"Government (General)",
+    "event_count":23828
+  },
+  {
+    "targtype1_txt":"Business",
+    "event_count":22169
+  },
+  {
+    "targtype1_txt":"Unknown",
+    "event_count":7174
+  },
+  {
+    "targtype1_txt":"Transportation",
+    "event_count":7173
+  },
+  {
+    "targtype1_txt":"Utilities",
+    "event_count":6328
+  },
+  {
+    "targtype1_txt":"Religious Figures\/Institutions",
+    "event_count":5107
+  },
+  {
+    "targtype1_txt":"Educational Institution",
+    "event_count":4761
+  }
+]

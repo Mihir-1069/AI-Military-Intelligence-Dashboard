@@ -1,0 +1,16 @@
+{
+  "total_events": 209706,
+  "start_year": 1970,
+  "end_year": 2020,
+  "unique_countries": 204,
+  "unique_regions": 12,
+  "casualty_statistics": {
+    "total_killed": 479348.0,
+    "total_wounded": 585606.0,
+    "total_casualties": 1064954.0,
+    "mean_killed_per_event": 2.29,
+    "mean_wounded_per_event": 2.79,
+    "max_killed_single_event": 1700.0,
+    "max_wounded_single_event": 10878.0
+  }
+}

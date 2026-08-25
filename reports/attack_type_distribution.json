@@ -1,0 +1,56 @@
+[
+  {
+    "attacktype1_txt":"Bombing\/Explosion",
+    "event_count":98158,
+    "total_killed":174134.0,
+    "total_wounded":401847.0
+  },
+  {
+    "attacktype1_txt":"Armed Assault",
+    "event_count":49553,
+    "total_killed":182325.0,
+    "total_wounded":89622.0
+  },
+  {
+    "attacktype1_txt":"Assassination",
+    "event_count":21539,
+    "total_killed":27598.0,
+    "total_wounded":16245.0
+  },
+  {
+    "attacktype1_txt":"Hostage Taking (Kidnapping)",
+    "event_count":14045,
+    "total_killed":32301.0,
+    "total_wounded":9009.0
+  },
+  {
+    "attacktype1_txt":"Facility\/Infrastructure Attack",
+    "event_count":12325,
+    "total_killed":4552.0,
+    "total_wounded":4148.0
+  },
+  {
+    "attacktype1_txt":"Unknown",
+    "event_count":10942,
+    "total_killed":48707.0,
+    "total_wounded":22959.0
+  },
+  {
+    "attacktype1_txt":"Unarmed Assault",
+    "event_count":1229,
+    "total_killed":933.0,
+    "total_wounded":14805.0
+  },
+  {
+    "attacktype1_txt":"Hostage Taking (Barricade Incident)",
+    "event_count":1156,
+    "total_killed":5050.0,
+    "total_wounded":4531.0
+  },
+  {
+    "attacktype1_txt":"Hijacking",
+    "event_count":759,
+    "total_killed":3748.0,
+    "total_wounded":22440.0
+  }
+]

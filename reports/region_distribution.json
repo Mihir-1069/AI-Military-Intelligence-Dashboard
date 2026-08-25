@@ -1,0 +1,86 @@
+[
+  {
+    "region_txt":"Middle East & North Africa",
+    "event_count":58252,
+    "total_killed":149739.0,
+    "total_wounded":228820.0,
+    "total_casualties":378559.0
+  },
+  {
+    "region_txt":"South Asia",
+    "event_count":54725,
+    "total_killed":132037.0,
+    "total_wounded":169322.0,
+    "total_casualties":301359.0
+  },
+  {
+    "region_txt":"Sub-Saharan Africa",
+    "event_count":23746,
+    "total_killed":100557.0,
+    "total_wounded":62845.0,
+    "total_casualties":163402.0
+  },
+  {
+    "region_txt":"South America",
+    "event_count":19846,
+    "total_killed":29388.0,
+    "total_wounded":17500.0,
+    "total_casualties":46888.0
+  },
+  {
+    "region_txt":"Western Europe",
+    "event_count":17328,
+    "total_killed":6709.0,
+    "total_wounded":18773.0,
+    "total_casualties":25482.0
+  },
+  {
+    "region_txt":"Southeast Asia",
+    "event_count":14498,
+    "total_killed":17109.0,
+    "total_wounded":28394.0,
+    "total_casualties":45503.0
+  },
+  {
+    "region_txt":"Central America & Caribbean",
+    "event_count":10386,
+    "total_killed":28730.0,
+    "total_wounded":8988.0,
+    "total_casualties":37718.0
+  },
+  {
+    "region_txt":"Eastern Europe",
+    "event_count":5326,
+    "total_killed":7483.0,
+    "total_wounded":12132.0,
+    "total_casualties":19615.0
+  },
+  {
+    "region_txt":"North America",
+    "event_count":3847,
+    "total_killed":5153.0,
+    "total_wounded":27260.0,
+    "total_casualties":32413.0
+  },
+  {
+    "region_txt":"East Asia",
+    "event_count":847,
+    "total_killed":1154.0,
+    "total_wounded":9237.0,
+    "total_casualties":10391.0
+  },
+  {
+    "region_txt":"Central Asia",
+    "event_count":580,
+    "total_killed":1084.0,
+    "total_wounded":2021.0,
+    "total_casualties":3105.0
+  },
+  {
+    "region_txt":"Australasia & Oceania",
+    "event_count":325,
+    "total_killed":205.0,
+    "total_wounded":314.0,
+    "total_casualties":519.0
+  }
+]
