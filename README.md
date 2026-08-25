@@ -215,11 +215,15 @@ Launch using `streamlit run src/dashboard/app.py` or `python run.py dashboard`:
 
 Organized for modular development across 5 team members:
 
-- **Member 1 (Data Lead)**: `src/data/` (Data loading, cleaning, year-wise splitting).
-- **Member 2 (Analytics & Visualization Lead)**: `src/analysis/`, `src/visualization/` (Statistical breakdown, trends, charts, maps).
-- **Member 3 (Feature Engineering Lead)**: `src/features/` (Derived metrics, categorical encoding, feature pipeline).
-- **Member 4 (Documentation & QA Lead)**: `notebooks/`, `reports/`, documentation validation.
-- **Project Lead**: `src/models/`, `src/dashboard/`, `run.py`, system integration.
+Member 1 (Data Lead – Riya): src/data/ (Data loading, cleaning, preprocessing, year-wise splitting).
+
+Member 2 (Analytics & Visualization Lead – Saloni): src/analysis/, src/visualization/ (Statistical breakdown, trends, charts, maps).
+
+Member 3 (Feature Engineering Lead – Khusi): src/feature_engineering/ (Derived metrics, categorical encoding, feature pipeline).
+
+Member 4 (Model Lead – Hitesh): src/model/ (Model development, training, evaluation, prediction).
+
+Project Lead – Mihir: src/dashboard/, run.py, system integration, final pipeline, QA & project coordination.
 
 ---
 
