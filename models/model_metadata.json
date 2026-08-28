@@ -1,7 +1,7 @@
 {
     "model_type": "RandomForestClassifier",
     "version": "1.0.0",
-    "training_date": "2026-08-25 19:37:32",
+    "training_date": "2026-08-28 17:10:54",
     "target_name": "high_severity_event",
     "feature_names": [
         "iyear",
