@@ -263,7 +263,16 @@ src/
 ---
 
 ### 4.3 Data Leakage Safeguard Implementation
-Direct casualty measures ($\text{nkill}, \text{nwound}, \text{total\_casualties}, \text{lethality\_ratio}$) are strictly **excluded** from predictor matrix $X$. Predictions rely solely on event context (year, month, region, country, attack type, target category, weapon type, suicide flag, success flag, property damage, and spatial coordinates).
+
+Direct casualty metrics (`nkill`, `nwound`, `total_casualties`, and `lethality_ratio`) are strictly **excluded** from the input predictor feature matrix `X`. 
+
+Because the target variable `high_severity_event` is derived directly from casualty thresholds (`total_casualties >= 1` or `suicide == 1`), including casualty counts as input predictors would cause **artificial target leakage**, artificially inflating model performance during training while failing on real-world unobserved incidents.
+
+To ensure true predictive generalization, the machine learning classifier predicts event severity using **only contextual incident features**:
+- **Temporal Attributes**: Event Year (`iyear`), Event Month (`imonth`), Event Day (`iday`)
+- **Geographic Location**: Region Code (`region_txt_code`), Country Code (`country_txt_code`), Spatial Coordinates (`latitude`, `longitude`)
+- **Tactical Event Context**: Attack Type Code (`attacktype1_txt_code`), Target Category Code (`targtype1_txt_code`), Weapon Category Code (`weaptype1_txt_code`)
+- **Tactical Operational Flags**: Suicide Flag (`suicide`), Attack Execution Success Flag (`success`), Property Damage Flag (`property`), Hostage/Kidnapping Flag (`ishostkid`)
 
 ---
 
