@@ -9,7 +9,7 @@
 
 <br>
 
-## A FORMAL ONLINE INTERNSHIP TRAINING & PROJECT REPORT ON
+## A FORMAL COMPREHENSIVE ONLINE INTERNSHIP TRAINING & PROJECT REPORT ON
 # 🛡️ AI-POWERED MILITARY INTELLIGENCE DASHBOARD
 ***Defensive Analytics, Temporal Trend Modeling, and Machine Learning Threat Severity Assessment***
 
@@ -23,13 +23,13 @@
 
 ### 👨‍💻 **STUDENT INTERN TEAM & OFFICIAL BSERC IDs**
 
-| Intern Name | Official BSERC Intern ID | Role & Contribution Scope |
-|---|---|---|
-| **Mihir Kumar** *(Project Lead)* | **BSERC-08200** | **Lead Architect & Primary Developer** (Built end-to-end data pipeline, preprocessing engine, feature engineering, ML model, Streamlit multipage dashboard, CLI runner `run.py`, and Streamlit Cloud deployment) |
-| **Rasleen Kaur** | **BSERC-14865** | **Data Operations & Quality Assurance** (Assisted in dataset validation & schema verification) |
-| **Khushi** | **BSERC-07895** | **Feature Analysis & Encodings** (Collaborated on categorical feature mapping) |
-| **Hitesh Khutela** | **BSERC-02818** | **Machine Learning Experimentation** (Collaborated on model training validation scripts) |
-| **Saloni Bhimrao Rangari** | **BSERC-02699** | **Statistical Metrics & Trend Analysis** (Collaborated on statistical metrics helpers) |
+| Intern Name | Official BSERC Intern ID | Assigned Project Role | Core Ownership Scope |
+|---|---|---|---|
+| **Mihir Kumar** *(Project Lead)* | **BSERC-08200** | **Lead Architect & Primary Developer** | Engineered full data pipeline, preprocessing engine, feature matrix, ML model, Streamlit multipage application (`app.py`, `00` to `04`), dark theme CSS (`style.css`), CLI runner (`run.py`), and Streamlit Cloud deployment |
+| **Rasleen Kaur** | **BSERC-14865** | **Data Operations & Quality Assurance** | Assisted in raw dataset field validation, coordinate verification, and schema checks |
+| **Khushi** | **BSERC-07895** | **Feature Analysis & Encodings** | Collaborated on categorical feature mapping and attack tactic value counts |
+| **Hitesh Khutela** | **BSERC-02818** | **Machine Learning Experimentation** | Collaborated on model parameter testing and validation split scripts |
+| **Saloni Bhimrao Rangari** | **BSERC-02699** | **Statistical Metrics & Trend Analysis** | Collaborated on regional metric calculations and annual trend aggregates |
 
 ---
 
@@ -37,7 +37,7 @@
 - **Faculty / Project Mentor**: **Dr. Smita Agrawal** (Designation: Mentor \| Contact: +91 9928023107)
 - **Program Coordinator**: **Rahul Singh** (Designation: Outreach Director \| Email: `Director@bserc.org` \| Mobile: +91 7303048634)
 - **Host Institution**: **Bharat Space Education Research Centre (BSERC)**
-- **Official Data Source**: **Global Terrorism Database (GTD)** — START, University of Maryland ([`https://www.start.umd.edu/data-tools/GTD`](https://www.start.umd.edu/data-tools/GTD))
+- **Official Data Source**: **Global Terrorism Database (GTD)** — National Consortium for the Study of Terrorism and Responses to Terrorism (START), University of Maryland ([`https://www.start.umd.edu/data-tools/GTD`](https://www.start.umd.edu/data-tools/GTD))
 - **Live Deployed Web Application**: [`https://ai-military-intelligence-dashboard-azou6rjqnalb6pttxubte9.streamlit.app/`](https://ai-military-intelligence-dashboard-azou6rjqnalb6pttxubte9.streamlit.app/)
 - **GitHub Repository**: [`https://github.com/Mihir-1069/AI-Military-Intelligence-Dashboard`](https://github.com/Mihir-1069/AI-Military-Intelligence-Dashboard)
 
@@ -110,15 +110,16 @@ Finally, we acknowledge the collective efforts and contributions of all student 
 ## 📑 TABLE OF CONTENTS
 
 1. [Executive Summary & Abstract](#-executive-summary--abstract)
-2. [Chapter 1: Introduction & Organization Profile](#-chapter-1-introduction--organization-profile)
-3. [Chapter 2: Team Roles & Contribution Breakdown](#-chapter-2-team-roles--contribution-breakdown)
-4. [Chapter 3: System Architecture & Data Engineering Pipeline](#-chapter-3-system-architecture--data-engineering-pipeline)
-5. [Chapter 4: Feature Engineering & Target Formulation](#-chapter-4-feature-engineering--target-formulation)
+2. [Chapter 1: Introduction, Background & Objectives](#-chapter-1-introduction-background--objectives)
+3. [Chapter 2: Team Roles & System Architecture](#-chapter-2-team-roles--system-architecture)
+4. [Chapter 3: Data Ingestion & Preprocessing Engine](#-chapter-3-data-ingestion--preprocessing-engine)
+5. [Chapter 4: Feature Engineering & Data Leakage Prevention](#-chapter-4-feature-engineering--data-leakage-prevention)
 6. [Chapter 5: Machine Learning Model Development & Performance](#-chapter-5-machine-learning-model-development--performance)
-7. [Chapter 6: Interactive Dashboard UI & User Experience](#-chapter-6-interactive-dashboard-ui--user-experience)
-8. [Chapter 7: System Tools & Dependencies](#-chapter-7-system-tools--dependencies)
-9. [Chapter 8: Key Learning Outcomes & Conclusion](#-chapter-8-key-learning-outcomes--conclusion)
-10. [Official Virtual Verification & Verification Log](#-official-virtual-verification--verification-log)
+7. [Chapter 6: Statistical Trend Engine & Anomaly Detection](#-chapter-6-statistical-trend-engine--anomaly-detection)
+8. [Chapter 7: Interactive Dashboard UI & User Experience](#-chapter-7-interactive-dashboard-ui--user-experience)
+9. [Chapter 8: System Tools, Installation & CLI Interface](#-chapter-8-system-tools-installation--cli-interface)
+10. [Chapter 9: Discussion, Future Work & Conclusion](#-chapter-9-discussion-future-work--conclusion)
+11. [Official Virtual Verification & Verification Log](#-official-virtual-verification--verification-log)
 
 ---
 
@@ -132,7 +133,7 @@ The platform carries out end-to-end data processing: raw data ingestion, cleanin
 
 ---
 
-## 🏢 CHAPTER 1: INTRODUCTION & ORGANIZATION PROFILE
+## 🏢 CHAPTER 1: INTRODUCTION, BACKGROUND & OBJECTIVES
 
 ### 1.1 Host Organization Profile
 - **Organization Name**: Bharat Space Education Research Centre (BSERC)
@@ -140,42 +141,50 @@ The platform carries out end-to-end data processing: raw data ingestion, cleanin
 - **Mentorship Team**: Dr. Smita Agrawal (Mentor), Rahul Singh (Outreach Director)
 - **Mode of Internship**: Online / Virtual Remote Research Internship Program
 
-### 1.2 Data Source Attribution
-- **Dataset**: Global Terrorism Database (GTD)
-- **Provider**: National Consortium for the Study of Terrorism and Responses to Terrorism (START), University of Maryland
-- **URL**: `https://www.start.umd.edu/data-tools/GTD`
-- **Dataset Scope**: 209,706 recorded global incidents from 1970 through 2020 across 135 attribute dimensions.
+### 1.2 Data Source Attribution & Scope
+- **Dataset Title**: Global Terrorism Database (GTD)
+- **Provider Institution**: National Consortium for the Study of Terrorism and Responses to Terrorism (START), University of Maryland
+- **Official Portal**: `https://www.start.umd.edu/data-tools/GTD`
+- **Scope**: 209,706 recorded global incidents from 1970 through 2020 across 135 raw attribute dimensions.
+
+### 1.3 Defensive Analytics Principles
+In accordance with ethical academic research guidelines, this project strictly focuses on **defensive analytics**:
+- Macro-level historical temporal trend analysis
+- Aggregate regional activity distribution heatmaps
+- Non-leaking predictive event severity classification
+- **Exclusion of operational military targeting, tactical strike planning, or individual tracking capabilities.**
 
 ---
 
-## 👥 CHAPTER 2: TEAM ROLES & CONTRIBUTION BREAKDOWN
+## 👥 CHAPTER 2: TEAM ROLES & SYSTEM ARCHITECTURE
 
-The project architecture was developed with clear modular division. **Mihir Kumar** served as the Project Lead and primary developer, engineering the overall codebase, machine learning pipeline, data cleaning algorithms, and Streamlit dashboard interface. Team members collaborated on specific sub-module scripts:
+### 2.1 Codebase Package Architecture
+The project was architected following modular software design principles. **Mihir Kumar** served as the Project Lead and primary developer, engineering the overall codebase, machine learning pipeline, data cleaning algorithms, and Streamlit dashboard interface. Team members collaborated on specific sub-module scripts:
 
 ```
-src/
-├── data/           ---> Data Ingestion & Preprocessing (Engineered by Mihir Kumar; Schema verification by Rasleen Kaur)
-├── features/       ---> Feature Engineering & Encodings (Engineered by Mihir Kumar; Feature analysis by Khushi)
-├── analysis/       ---> Trend Analysis Engine (Engineered by Mihir Kumar; Metrics validation by Saloni Bhimrao Rangari)
-├── models/         ---> ML Model Training & Evaluation (Engineered by Mihir Kumar; Experimentation by Hitesh Khutela)
-└── dashboard/      ---> Streamlit Multipage UI Architecture (Engineered by Mihir Kumar)
+AI-Military-Intelligence-Dashboard/
+│
+├── .streamlit/                       # Dark theme Streamlit configuration
+├── data/
+│   ├── raw/                          # Raw Excel GTD dataset (START UMD)
+│   ├── yearly/                       # 50 Yearly split CSV files (1970 - 2020)
+│   └── processed/                    # Cleaned & engineered datasets
+│
+├── models/                           # Machine Learning artifacts (threat_model.pkl)
+├── reports/                          # Evaluation figures & JSON metric summaries
+│
+├── src/                              # Core Python Package Source Code
+│   ├── data/                         # Data Ingestion & Preprocessing (Led by Mihir Kumar & Rasleen Kaur)
+│   ├── features/                     # Feature Matrix Engineering (Led by Mihir Kumar & Khushi)
+│   ├── analysis/                     # Statistical & Anomaly Engine (Led by Mihir Kumar & Saloni Bhimrao Rangari)
+│   ├── models/                       # ML Training & Inference Engine (Led by Mihir Kumar & Hitesh Khutela)
+│   ├── dashboard/                    # Multipage Streamlit UI (Led by Mihir Kumar)
+│   └── utils/                        # Logging & Path Config
+│
+└── run.py                            # Central CLI Execution Interface
 ```
 
-### Detailed Intern Breakdown:
-1. **Mihir Kumar (Project Lead & System Architect - BSERC-08200)**:
-   - Built the complete codebase architecture, CLI runner (`run.py`), preprocessing engine (`preprocess.py`), dynamic year-wise CSV splitting (`split_by_year.py`), feature engineering matrix (`feature_engineering.py`), model training & evaluation pipeline (`train.py`, `evaluate.py`, `predict.py`), Streamlit multipage application (`app.py`, `00_Home.py`, `01` to `04`), dark theme CSS (`style.css`), and Streamlit Cloud deployment setup.
-2. **Rasleen Kaur (BSERC Intern ID: BSERC-14865)**:
-   - Data Operations & Quality Assurance: Assisted in raw dataset field validation, coordinate verification, and schema checks.
-3. **Khushi (BSERC Intern ID: BSERC-07895)**:
-   - Feature Analysis & Encodings: Collaborated on categorical feature mapping and attack tactic value counts.
-4. **Hitesh Khutela (BSERC Intern ID: BSERC-02818)**:
-   - Machine Learning Experimentation: Collaborated on model parameter testing and validation split scripts.
-5. **Saloni Bhimrao Rangari (BSERC Intern ID: BSERC-02699)**:
-   - Statistical Metrics & Trend Analysis: Collaborated on regional metric calculations and annual trend aggregates.
-
----
-
-## ⚙️ CHAPTER 3: SYSTEM ARCHITECTURE & DATA ENGINEERING PIPELINE
+### 2.2 End-to-End Data Pipeline Flowchart
 
 ```
 +---------------------------------------------------------------------------------+
@@ -224,7 +233,28 @@ src/
 
 ---
 
-## 📊 CHAPTER 4: FEATURE ENGINEERING & TARGET FORMULATION
+## ⚙️ CHAPTER 3: DATA INGESTION & PREPROCESSING ENGINE
+
+### 3.1 Attribute Selection & Filtering
+From the raw 135 GTD fields, 32 core attributes were extracted representing event identifiers, temporal parameters, spatial coordinates, tactical classifications, target categories, weapon types, and casualty metrics:
+
+| Attribute Category | Selected Field Names |
+|---|---|
+| **Event Identification** | `eventid` |
+| **Temporal Parameters** | `iyear`, `imonth`, `iday` |
+| **Geographic Location** | `country`, `country_txt`, `region`, `region_txt`, `provstate`, `city`, `latitude`, `longitude` |
+| **Tactical Context** | `attacktype1`, `attacktype1_txt`, `targtype1`, `targtype1_txt`, `weaptype1`, `weaptype1_txt`, `gname` |
+| **Operational Flags** | `suicide`, `success`, `multiple`, `property`, `ishostkid` |
+| **Casualty Measures** | `nkill`, `nwound` |
+
+### 3.2 Cleaning & Sentinel Value Sanitization
+1. **Sentinel Replacement**: Field values equal to `-99` or `-9` (representing missing/unknown GTD records) were programmatically converted to `NaN`.
+2. **Coordinate Boundaries**: Latitude and longitude values were validated strictly within $[-90^\circ, +90^\circ]$ and $[-180^\circ, +180^\circ]$ respectively.
+3. **Casualty Defaults**: Missing `nkill` and `nwound` records were imputed to `0` for aggregate casualty summation.
+
+---
+
+## 📊 CHAPTER 4: FEATURE ENGINEERING & DATA LEAKAGE PREVENTION
 
 ### 4.1 Mathematical Formulas & Derivations
 
@@ -278,12 +308,12 @@ To ensure true predictive generalization, the machine learning classifier predic
 
 ## 🤖 CHAPTER 5: MACHINE LEARNING MODEL DEVELOPMENT & EVALUATION
 
-### 5.1 Model Specifications
+### 5.1 Model Specifications & Training Config
 - **Algorithm**: `RandomForestClassifier`
-- **Trees (`n_estimators`)**: 100
+- **Number of Estimators (`n_estimators`)**: 100
 - **Max Tree Depth (`max_depth`)**: 15
 - **Class Weights**: `balanced`
-- **Train/Test Split**: 80% / 20% Stratified Split
+- **Train/Test Split**: 80% Train (167,764 samples) / 20% Test (41,942 samples) Stratified
 
 ### 5.2 Performance Metrics Table
 
@@ -297,7 +327,19 @@ To ensure true predictive generalization, the machine learning classifier predic
 
 ---
 
-## 🖥️ CHAPTER 6: INTERACTIVE DASHBOARD UI & USER EXPERIENCE
+## 📈 CHAPTER 6: STATISTICAL TREND ENGINE & ANOMALY DETECTION
+
+### 6.1 Year-over-Year (YoY) Percentage Change
+$$\text{YoY\_Change}_t = \left( \frac{\text{Event\_Count}_t - \text{Event\_Count}_{t-1}}{\text{Event\_Count}_{t-1}} \right) \times 100$$
+
+### 6.2 Z-Score Spike Anomaly Detection Algorithm
+$$\mu = \frac{1}{N} \sum_{i=1}^{N} x_i, \quad \sigma = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (x_i - \mu)^2}$$
+$$Z_t = \frac{x_t - \mu}{\sigma}$$
+An anomaly spike year is declared when $Z_t > 1.5$.
+
+---
+
+## 🖥️ CHAPTER 7: INTERACTIVE DASHBOARD UI & USER EXPERIENCE
 
 The application interface is deployed live at [`https://ai-military-intelligence-dashboard-azou6rjqnalb6pttxubte9.streamlit.app/`](https://ai-military-intelligence-dashboard-azou6rjqnalb6pttxubte9.streamlit.app/) and structured into 5 dedicated multipage views:
 
@@ -309,28 +351,34 @@ The application interface is deployed live at [`https://ai-military-intelligence
 
 ---
 
-## 🛠️ CHAPTER 7: SYSTEM TOOLS & DEPENDENCIES
+## 🛠️ CHAPTER 8: SYSTEM TOOLS, INSTALLATION & CLI INTERFACE
 
-| Technology Layer | Tools / Libraries Used |
-|---|---|
-| **Programming Language** | Python 3.10+ |
-| **Data Manipulation** | Pandas (≥2.0.0), NumPy (≥1.24.0), OpenPyXL |
-| **Machine Learning** | Scikit-Learn (≥1.2.0), Joblib |
-| **Data Visualization** | Plotly (≥5.14.0), Matplotlib, Seaborn |
-| **Web Dashboard** | Streamlit (≥1.36.0) |
-| **Version Control & Cloud** | Git, GitHub, Streamlit Community Cloud |
+### 8.1 Technology Stack
+- **Python 3.10+**
+- **Data Engineering**: Pandas (≥2.0.0), NumPy (≥1.24.0), OpenPyXL
+- **Machine Learning**: Scikit-Learn (≥1.2.0), Joblib
+- **Data Visualization**: Plotly (≥5.14.0), Matplotlib, Seaborn
+- **Web Dashboard**: Streamlit (≥1.36.0)
+
+### 8.2 CLI Commands
+```bash
+# Execute end-to-end pipeline
+python run.py all
+
+# Launch Streamlit Dashboard
+python run.py dashboard
+```
 
 ---
 
-## 🎓 CHAPTER 8: KEY LEARNING OUTCOMES & CONCLUSION
+## 🎓 CHAPTER 9: DISCUSSION, FUTURE WORK & CONCLUSION
 
-### 8.1 Key Technical Learnings
-- **End-to-End Pipeline Engineering**: Gained practical experience organizing data ingestion, cleaning, feature engineering, modeling, and deployment into a modular architecture.
-- **Data Leakage Safeguards**: Learned how to construct synthetic target variables without leaking derived feature information into the predictor matrix.
-- **Modern Dashboard Design**: Developed proficiency with Streamlit's `st.navigation`, `st.Page` API, custom CSS styling, and Plotly interactive chart integration.
+### 9.1 Conclusion
+The online research internship at **Bharat Space Education Research Centre (BSERC)** successfully produced an academic-grade data science application. The **AI-Powered Military Intelligence Dashboard** processes 50 years of START UMD GTD event data, enforces data leakage safeguards, achieves an 84.57% classification accuracy (92.73% ROC-AUC), and delivers an interactive cloud dashboard.
 
-### 8.2 Conclusion
-The online internship at **Bharat Space Education Research Centre (BSERC)** successfully fulfilled all technical and academic objectives. The **AI-Powered Military Intelligence Dashboard** delivers a robust analytical tool for studying historical terrorism trends, identifying regional risk patterns, and performing threat classification.
+### 9.2 Future Research Scope
+1. **Spatial-Temporal Graph Neural Networks (GNNs)**: Model cross-border group connectivity.
+2. **Multi-Class Threat Tiering**: Classify threat severity into 4 discrete risk tiers (Critical, Severe, Moderate, Low).
 
 ---
 
