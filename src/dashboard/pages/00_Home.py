@@ -4,9 +4,10 @@ import streamlit as st
 import pandas as pd
 
 # Setup Root Directory Path
-ROOT_DIR = Path(__file__).resolve().parent.parent.parent.parent
+CURRENT_DIR = Path(__file__).resolve().parent
+ROOT_DIR = CURRENT_DIR.parent.parent.parent
 if str(ROOT_DIR) not in sys.path:
-    sys.path.append(str(ROOT_DIR))
+    sys.path.insert(0, str(ROOT_DIR))
 
 from src.utils.config import CLEANED_DATA_PATH
 from src.data.load_data import load_csv_dataset
