@@ -56,7 +56,7 @@ def plot_regional_activity_map(df: pd.DataFrame):
     return fig
 
 def plot_aggregate_hotspots(df: pd.DataFrame):
-    """Plots density heatmap of regional threat hotspots."""
+    """Plots density heatmap of regional threat hotspots with multi-version fallback."""
     if df.empty or "latitude" not in df.columns or "longitude" not in df.columns:
         return None
 
@@ -64,16 +64,37 @@ def plot_aggregate_hotspots(df: pd.DataFrame):
     if len(valid_coords) > 10000:
         valid_coords = valid_coords.sample(n=10000, random_state=42)
 
-    fig = px.density_mapbox(
-        valid_coords,
-        lat="latitude",
-        lon="longitude",
-        z="nkill" if "nkill" in valid_coords.columns else None,
-        radius=10,
-        center=dict(lat=20, lon=0),
-        zoom=1,
-        mapbox_style="carto-darkmatter",
-        title="Aggregate Historical Fatalities Density Hotspots"
-    )
+    try:
+        if hasattr(px, "density_map"):
+            fig = px.density_map(
+                valid_coords,
+                lat="latitude",
+                lon="longitude",
+                z="nkill" if "nkill" in valid_coords.columns else None,
+                radius=10,
+                center=dict(lat=20, lon=0),
+                zoom=1,
+                map_style="carto-darkmatter",
+                title="Aggregate Historical Fatalities Density Hotspots"
+            )
+        elif hasattr(px, "density_mapbox"):
+            fig = px.density_mapbox(
+                valid_coords,
+                lat="latitude",
+                lon="longitude",
+                z="nkill" if "nkill" in valid_coords.columns else None,
+                radius=10,
+                center=dict(lat=20, lon=0),
+                zoom=1,
+                mapbox_style="carto-darkmatter",
+                title="Aggregate Historical Fatalities Density Hotspots"
+            )
+        else:
+            fig = plot_event_map(valid_coords)
+            return fig
+    except Exception:
+        fig = plot_event_map(valid_coords)
+        return fig
+
     fig.update_layout(template="plotly_dark")
     return fig

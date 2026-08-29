@@ -70,23 +70,53 @@ def create_multi_region_line_chart(df: pd.DataFrame, regions: list, title: str =
     fig.update_layout(**DARK_LAYOUT)
     return fig
 
-def create_density_map(df: pd.DataFrame, max_points: int = 5000) -> go.Figure:
-    """Creates an aggregate density heat map using Plotly scatter mapbox / density mapbox."""
+def create_density_map(df: pd.DataFrame, max_points: int = 4000) -> go.Figure:
+    """Creates an aggregate density heat map with robust multi-version fallback."""
     if df.empty or "latitude" not in df.columns or "longitude" not in df.columns:
         return go.Figure()
 
     valid = df.dropna(subset=["latitude", "longitude"]).copy()
+    if valid.empty:
+        return go.Figure()
+
     if len(valid) > max_points:
         valid = valid.sample(n=max_points, random_state=42)
 
-    fig = px.density_mapbox(
-        valid, lat="latitude", lon="longitude",
-        z="nkill" if "nkill" in valid.columns else None,
-        radius=8,
-        center=dict(lat=20, lon=0),
-        zoom=1,
-        mapbox_style="carto-darkmatter",
-        title=f"Aggregate Historical Density Hotspots (Sampled {len(valid):,} Events)"
-    )
+    try:
+        if hasattr(px, "density_map"):
+            fig = px.density_map(
+                valid, lat="latitude", lon="longitude",
+                z="nkill" if "nkill" in valid.columns else None,
+                radius=8,
+                center=dict(lat=20, lon=0),
+                zoom=1,
+                map_style="carto-darkmatter",
+                title=f"Aggregate Historical Density Hotspots (Sampled {len(valid):,} Events)"
+            )
+        elif hasattr(px, "density_mapbox"):
+            fig = px.density_mapbox(
+                valid, lat="latitude", lon="longitude",
+                z="nkill" if "nkill" in valid.columns else None,
+                radius=8,
+                center=dict(lat=20, lon=0),
+                zoom=1,
+                mapbox_style="carto-darkmatter",
+                title=f"Aggregate Historical Density Hotspots (Sampled {len(valid):,} Events)"
+            )
+        else:
+            fig = px.scatter_geo(
+                valid, lat="latitude", lon="longitude",
+                color="nkill" if "nkill" in valid.columns else None,
+                title=f"Aggregate Historical Event Map (Sampled {len(valid):,} Events)",
+                projection="natural earth"
+            )
+    except Exception:
+        fig = px.scatter_geo(
+            valid, lat="latitude", lon="longitude",
+            color="nkill" if "nkill" in valid.columns else None,
+            title=f"Aggregate Historical Event Map (Sampled {len(valid):,} Events)",
+            projection="natural earth"
+        )
+
     fig.update_layout(**DARK_LAYOUT)
     return fig
