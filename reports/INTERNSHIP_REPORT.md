@@ -37,7 +37,9 @@
 - **Faculty / Project Mentor**: **Dr. Smita Agrawal** (Designation: Mentor \| Contact: +91 9928023107)
 - **Program Coordinator**: **Rahul Singh** (Designation: Outreach Director \| Email: `Director@bserc.org` \| Mobile: +91 7303048634)
 - **Host Institution**: **Bharat Space Education Research Centre (BSERC)**
-- **Official Data Source**: **Global Terrorism Database (GTD)** — National Consortium for the Study of Terrorism and Responses to Terrorism (START), University of Maryland ([`https://www.start.umd.edu/data-tools/GTD`](https://www.start.umd.edu/data-tools/GTD))
+- **Official Data Source**: **Global Terrorism Database (GTD)** — START, University of Maryland ([`https://www.start.umd.edu/data-tools/GTD`](https://www.start.umd.edu/data-tools/GTD))
+- **Live Deployed Web Application**: [`https://ai-military-intelligence-dashboard-azou6rjqnalb6pttxubte9.streamlit.app/`](https://ai-military-intelligence-dashboard-azou6rjqnalb6pttxubte9.streamlit.app/)
+- **GitHub Repository**: [`https://github.com/Mihir-1069/AI-Military-Intelligence-Dashboard`](https://github.com/Mihir-1069/AI-Military-Intelligence-Dashboard)
 
 ---
 
@@ -110,7 +112,7 @@ Finally, we acknowledge the collective efforts and contributions of all student 
 1. [Executive Summary & Abstract](#-executive-summary--abstract)
 2. [Chapter 1: Introduction & Organization Profile](#-chapter-1-introduction--organization-profile)
 3. [Chapter 2: Team Roles & Contribution Breakdown](#-chapter-2-team-roles--contribution-breakdown)
-4. [Chapter 3: Data Ingestion & Preprocessing Pipeline](#-chapter-3-data-ingestion--preprocessing-pipeline)
+4. [Chapter 3: System Architecture & Data Engineering Pipeline](#-chapter-3-system-architecture--data-engineering-pipeline)
 5. [Chapter 4: Feature Engineering & Target Formulation](#-chapter-4-feature-engineering--target-formulation)
 6. [Chapter 5: Machine Learning Model Development & Performance](#-chapter-5-machine-learning-model-development--performance)
 7. [Chapter 6: Interactive Dashboard UI & User Experience](#-chapter-6-interactive-dashboard-ui--user-experience)
@@ -126,7 +128,7 @@ Modern security and defense research increasingly relies on data science, spatio
 
 During this online internship at **Bharat Space Education Research Centre (BSERC)**, an end-to-end data science application was developed: **AI-Powered Military Intelligence Dashboard**. The system processes **209,706 historical event records** spanning 50 years (1970–2020) from the Global Terrorism Database (GTD) published by the National Consortium for the Study of Terrorism and Responses to Terrorism (START), University of Maryland ([`https://www.start.umd.edu/data-tools/GTD`](https://www.start.umd.edu/data-tools/GTD)).
 
-The platform carries out end-to-end data processing: raw data ingestion, cleaning, year-wise dataset partitioning, categorical encoding, machine learning threat severity classification (`RandomForestClassifier`), and interactive visualization via a dark-navy Streamlit Community Cloud web application. The trained classifier achieves an **Accuracy of 84.57%**, **Precision of 89.49%**, **Recall of 84.33%**, **F1-Score of 86.83%**, and an **ROC-AUC score of 92.73%** on 41,942 test incidents.
+The platform carries out end-to-end data processing: raw data ingestion, cleaning, year-wise dataset partitioning, categorical encoding, machine learning threat severity classification (`RandomForestClassifier`), and interactive visualization via a dark-navy Streamlit Community Cloud web application deployed at [`https://ai-military-intelligence-dashboard-azou6rjqnalb6pttxubte9.streamlit.app/`](https://ai-military-intelligence-dashboard-azou6rjqnalb6pttxubte9.streamlit.app/). The trained classifier achieves an **Accuracy of 84.57%**, **Precision of 89.49%**, **Recall of 84.33%**, **F1-Score of 86.83%**, and an **ROC-AUC score of 92.73%** on 41,942 test incidents.
 
 ---
 
@@ -224,19 +226,44 @@ src/
 
 ## 📊 CHAPTER 4: FEATURE ENGINEERING & TARGET FORMULATION
 
-### 4.1 Casualty Derivation
-$$\text{total\_casualties} = \text{nkill} + \text{nwound}$$
-$$\text{lethality\_ratio} = \begin{cases} \frac{\text{nkill}}{\text{total\_casualties}} & \text{if } \text{total\_casualties} > 0 \\ 0 & \text{otherwise} \end{cases}$$
+### 4.1 Mathematical Formulas & Derivations
 
-### 4.2 Target Variable Formulation (`high_severity_event`)
-$$\text{high\_severity\_event} = \begin{cases} 1 & \text{if } \text{total\_casualties} \ge 1 \lor \text{suicide} = 1 \\ 0 & \text{otherwise} \end{cases}$$
+#### 1. Total Casualties Metric Formula:
+```math
+\text{total\_casualties} = \text{nkill} + \text{nwound}
+```
+> **Plain Text Definition**:  
+> `total_casualties = nkill (Total Fatalities) + nwound (Total Wounded)`
 
-Class balance across 209,706 records:
-- **High Severity (`1`)**: **60.35%** (126,557 events)
-- **Moderate/Low Severity (`0`)**: **39.65%** (83,149 events)
+<br>
 
-### 4.3 Data Leakage Safeguard
-Direct casualty counts ($\text{nkill}, \text{nwound}, \text{total\_casualties}$) are strictly **excluded** from predictor matrix $X$. Predictions rely solely on event context (year, month, region, country, attack type, target category, weapon type, suicide flag, success flag, property damage, and spatial coordinates).
+#### 2. Lethality Ratio Metric Formula:
+```math
+\text{lethality\_ratio} = \begin{cases} \frac{\text{nkill}}{\text{total\_casualties}} & \text{if } \text{total\_casualties} > 0 \\ 0 & \text{if } \text{total\_casualties} = 0 \end{cases}
+```
+> **Plain Text Definition**:  
+> `lethality_ratio = nkill / total_casualties` (evaluated when `total_casualties > 0`; defaults to `0.0` otherwise)
+
+---
+
+### 4.2 Target Variable Classification Formula (`high_severity_event`)
+
+```math
+\text{high\_severity\_event} = \begin{cases} 1 & \text{if } (\text{total\_casualties} \ge 1 \lor \text{suicide} = 1) \\ 0 & \text{otherwise} \end{cases}
+```
+> **Plain Text Definition**:  
+> `high_severity_event = 1` if `total_casualties >= 1` OR `suicide == 1`; otherwise `0`
+
+<br>
+
+**Class Distribution across 209,706 GTD Incident Records:**
+- **High Severity Class (`1`)**: **60.35%** (126,557 incidents)
+- **Moderate/Low Severity Class (`0`)**: **39.65%** (83,149 incidents)
+
+---
+
+### 4.3 Data Leakage Safeguard Implementation
+Direct casualty measures ($\text{nkill}, \text{nwound}, \text{total\_casualties}, \text{lethality\_ratio}$) are strictly **excluded** from predictor matrix $X$. Predictions rely solely on event context (year, month, region, country, attack type, target category, weapon type, suicide flag, success flag, property damage, and spatial coordinates).
 
 ---
 
@@ -263,7 +290,7 @@ Direct casualty counts ($\text{nkill}, \text{nwound}, \text{total\_casualties}$)
 
 ## 🖥️ CHAPTER 6: INTERACTIVE DASHBOARD UI & USER EXPERIENCE
 
-The application interface is structured into 5 dedicated multipage views with dark navy styling (`style.css`):
+The application interface is deployed live at [`https://ai-military-intelligence-dashboard-azou6rjqnalb6pttxubte9.streamlit.app/`](https://ai-military-intelligence-dashboard-azou6rjqnalb6pttxubte9.streamlit.app/) and structured into 5 dedicated multipage views:
 
 1. **🏠 Home Overview** (`pages/00_Home.py`): Global filters sidebar, KPI metrics grid, main trend timeline, regional & tactical breakdown, Carto Darkmatter density heatmap, dynamic automated insights.
 2. **📊 Threat Analysis** (`pages/01_Threat_Analysis.py`): 3-year rolling average line, YoY shift badges (`↑ INCREASING`, `↓ DECREASING`, `→ STABLE`), Z-score activity spikes table (>1.5 std dev), tactical category distributions.
