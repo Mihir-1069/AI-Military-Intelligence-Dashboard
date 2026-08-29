@@ -18,11 +18,13 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Data artifacts (large files)
+# Large Datasets (> 100MB limit for GitHub)
+data/raw/
 data/yearly/*.csv
 !data/yearly/.gitkeep
-data/processed/*.csv
-!data/processed/.gitkeep
+data/processed/engineered_features.csv
+data/processed/predictions.csv
 
 # Models
 models/*.pkl
+!models/threat_model.pkl

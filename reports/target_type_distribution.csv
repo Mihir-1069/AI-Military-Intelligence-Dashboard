@@ -1,11 +1,3 @@
-targtype1_txt,event_count
-Private Citizens & Property,51985
-Military,34131
-Police,28568
-Government (General),23828
-Business,22169
-Unknown,7174
-Transportation,7173
-Utilities,6328
-Religious Figures/Institutions,5107
-Educational Institution,4761
+version https://git-lfs.github.com/spec/v1
+oid sha256:f746ce0e3ed43ff99bfd78395f47eb5862162deb4baac608df973100dbf61a59
+size 254
