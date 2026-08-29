@@ -7,14 +7,12 @@ import plotly.graph_objects as go
 
 ROOT_DIR = Path(__file__).resolve().parent.parent.parent.parent
 if str(ROOT_DIR) not in sys.path:
-    sys.path.append(str(ROOT_DIR))
+    sys.path.insert(0, str(ROOT_DIR))
 
 from src.utils.config import MODEL_METADATA_PATH, FIGURES_DIR
 from src.utils.helper import load_json
 from src.dashboard.components.kpi_cards import render_kpi_grid
 from src.dashboard.components.chart_helpers import DARK_LAYOUT
-
-st.set_page_config(page_title="Model Performance - Military Intelligence Dashboard", page_icon="🤖", layout="wide")
 
 css_path = ROOT_DIR / "src" / "dashboard" / "assets" / "style.css"
 if css_path.exists():

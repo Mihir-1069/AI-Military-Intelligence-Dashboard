@@ -21,14 +21,6 @@ from src.analysis.statistical_analysis import (
     calculate_region_distribution, calculate_attack_type_distribution
 )
 
-# Page Config
-st.set_page_config(
-    page_title="Home - AI Military Intelligence Dashboard",
-    page_icon="🏠",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
-
 # Load CSS Theme
 css_path = ROOT_DIR / "src" / "dashboard" / "assets" / "style.css"
 if css_path.exists():

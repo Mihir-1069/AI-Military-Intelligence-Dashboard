@@ -5,7 +5,7 @@ import pandas as pd
 
 ROOT_DIR = Path(__file__).resolve().parent.parent.parent.parent
 if str(ROOT_DIR) not in sys.path:
-    sys.path.append(str(ROOT_DIR))
+    sys.path.insert(0, str(ROOT_DIR))
 
 from src.utils.config import MODEL_FILE_PATH, MODEL_METADATA_PATH, CLEANED_DATA_PATH
 from src.data.load_data import load_csv_dataset
@@ -13,8 +13,6 @@ from src.models.predict import load_trained_model, prepare_prediction_input
 from src.dashboard.components.risk_card import render_risk_assessment_card
 from src.dashboard.components.chart_helpers import create_timeline_chart
 from src.analysis.trend_analysis import calculate_yearly_trend
-
-st.set_page_config(page_title="Risk Assessment - Military Intelligence Dashboard", page_icon="⚠️", layout="wide")
 
 css_path = ROOT_DIR / "src" / "dashboard" / "assets" / "style.css"
 if css_path.exists():

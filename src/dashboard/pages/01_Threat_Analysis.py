@@ -5,7 +5,7 @@ import pandas as pd
 
 ROOT_DIR = Path(__file__).resolve().parent.parent.parent.parent
 if str(ROOT_DIR) not in sys.path:
-    sys.path.append(str(ROOT_DIR))
+    sys.path.insert(0, str(ROOT_DIR))
 
 from src.utils.config import CLEANED_DATA_PATH
 from src.data.load_data import load_csv_dataset
@@ -18,8 +18,6 @@ from src.analysis.statistical_analysis import (
 )
 from src.dashboard.components.chart_helpers import create_timeline_chart, create_bar_chart
 from src.dashboard.components.kpi_cards import render_kpi_grid
-
-st.set_page_config(page_title="Threat Analysis - Military Intelligence Dashboard", page_icon="📊", layout="wide")
 
 css_path = ROOT_DIR / "src" / "dashboard" / "assets" / "style.css"
 if css_path.exists():
